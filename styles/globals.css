@@ -91,6 +91,15 @@ h1, h2, h3, h4, h5, h6, p {
   object-fit: cover;           /* Ensures the image maintains aspect ratio */
 }
 
+.primary-image {
+  width: 100%;                /* Make the image responsive */
+  max-width: 66vw;            /* Limit the width based on the viewport */
+  max-height: 45vw;           /* Maintain the aspect ratio */
+  height: auto;               /* Maintain aspect ratio */
+  object-fit: cover;           /* Ensures the image maintains aspect ratio */
+  margin-bottom: 0px;         /* Add space between the image and the text */
+}
+
 /* Text (Title and Description) next to the image */
 .pattern-text {
   flex: 1; /* Take up remaining space next to the image */

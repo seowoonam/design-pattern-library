@@ -17,7 +17,7 @@ export default function PatternPage() {
     <div className="pattern-details-container">
       {/* Main Section with Image, Title, and Description */}
       <div className="pattern-main-content">
-        <img src={pattern.mainImage} alt={pattern.title} className="main-image" />
+      <img src={pattern.primaryImage} alt={pattern.title} className="primary-image" />
 
         <div className="pattern-text">
           <h1>{pattern.title}</h1>

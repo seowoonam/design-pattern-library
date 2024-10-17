@@ -4,6 +4,7 @@
       "oneLiner": "Make the prompt interactive to enable fine-tuning",
       "description": "Detect operators or variables in the user prompt and replace them with UI elements. It can be used to introduce other possible options or fine-tuning the prompt (e.g. giving different weights).",
       "mainImage": "/images/interactive prompt.png",
+      "primaryImage": "/images/interactive prompt_primary.png",
       "secondaryImage": [],
       "tags": ["AI", "UI"],
       "relatedPatterns": ["Constrained Input"]
@@ -13,6 +14,7 @@
         "oneLiner": "Replacing variables in the prompt with interactive UI elements",
         "description": "Add interactive data visualizations of parameters and let users adjust their weights. The image takes an example of the attention weight of each token in user prompt.",
         "mainImage": "/images/weighted parameter.png",
+        "primaryImage": "/images/weighted parameter_primary.png",
         "secondaryImage": [],
         "tags": ["AI", "Data", "UI"],
         "relatedPatterns": ["Interactive Prompt"]
@@ -22,6 +24,7 @@
         "oneLiner": "Show the segment of source data that AI retrieved and give an option to include or exclude it",
         "description": "Show the segment of source data that AI retrieved and give an option to include or exclude it.",
         "mainImage": "/images/data toggle.png",
+        "primaryImage": "/images/data toggle_primary.png",
         "secondaryImage": [],
         "tags": ["Data", "UI"],
         "relatedPatterns": []
@@ -31,6 +34,7 @@
       "oneLiner": "Limit the types of user inputs for higher performance",
       "description": "Ask users to give specific types of inputs so that the AI system can ensure more accurate outputs. If any, think about how each variable depend on each other.",
       "mainImage": "/images/constrained input.png",
+      "primaryImage": "/images/constrained input_primary.png",
       "secondaryImage": ["/images/constrained input_secondary.png", "/images/constrained input_secondary-1.png"],
       "tags": ["AI", "UI"],
       "relatedPatterns": ["Interactive Prompt"]
@@ -40,6 +44,7 @@
       "oneLiner": "Give different menu items and sort them based on the context",
       "description": "Ask users to give specific types of inputs so that the AI system can ensure more accurate outputs. If any, think about how each variable depend on each other.",
       "mainImage": "/images/probabilistic menu.png",
+      "primaryImage": "/images/probabilistic menu_primary.png",
       "secondaryImage": [],
       "tags": ["AI", "UI"],
       "relatedPatterns": ["Interactive Prompt"]
@@ -49,8 +54,19 @@
       "oneLiner": "Show the underlying system prompt",
       "description": "",
       "mainImage": "/images/full prompt.png",
+      "primaryImage": "/images/full prompt_primary.png",
       "secondaryImage": [],
       "tags": ["AI", "UI"],
+      "relatedPatterns": []
+    },
+    {
+      "title": "Dynamic Data Visualization",
+      "oneLiner": "Interactively fine-tune the data visualization",
+      "description": "Enable users to tailor the data visualization to their interests and needs by changing measures or adjusting units.",
+      "mainImage": "/images/dynamic data visualization.png",
+      "primaryImage": "/images/dynamic data visualization_primary.png",
+      "secondaryImage": ["/images/dynamic data visualization_secondary_1.png", "/images/dynamic data visualization_secondary_2.png"],
+      "tags": ["AI", "UI", "Data"],
       "relatedPatterns": []
     }
 
