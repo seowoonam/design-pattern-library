@@ -114,11 +114,18 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 /* Secondary image styling */
-.secondary-image {
-  width: 528px;
-  height: 336px;
-  object-fit: cover;
-  margin-top: 48px;
+.secondary-images {
+  width: 100%;                /* Make the container responsive */
+  max-width: 66vw;            /* Limit the width to the same as the main image */
+  display: flex;              /* Layout the secondary images side by side */
+  gap: 16px;                  /* Space between secondary images */
+  flex-wrap: wrap;            /* Wrap to a new row if there are too many images */
+}
+
+.secondary-images img {
+  width: 48%;                 /* Make each secondary image take up half the width of the container */
+  height: auto;               /* Maintain aspect ratio */
+  object-fit: cover;          /* Ensures the image maintains aspect ratio */
 }
 
 /* Related patterns section */
@@ -247,7 +254,7 @@ h1, h2, h3, h4, h5, h6, p {
     font-size: 16px;  /* Adjust description font size for smaller screens */
   }
 
-  .secondary-image {
+  .secondary-images {
     max-width: 100%; /* Make secondary image full width */
     height: auto;    /* Maintain aspect ratio */
   }

@@ -25,10 +25,15 @@ export default function PatternPage() {
         </div>
       </div>
 
-      {/* Optional Secondary Image */}
-      {pattern.secondaryImage && (
-        <img src={pattern.secondaryImage} alt={`${pattern.title} secondary`} className="secondary-image" />
-      )}
+      {/* Optional Secondary Images */}
+{pattern.secondaryImage && pattern.secondaryImage.length > 0 && (
+  <div className="secondary-images">
+    {pattern.secondaryImage.map((image, index) => (
+      <img key={index} src={image} alt={`${pattern.title} secondary ${index + 1}`} className="secondary-image" />
+    ))}
+  </div>
+)}
+
 
       {/* Related Patterns */}
       {pattern.relatedPatterns.length > 0 && (
