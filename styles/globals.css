@@ -1,27 +1,268 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #1e1e1e;
+}
+
+/* Gallery Layout */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  gap: 24px;
+  padding: 48px;
+}
+
+
+/* PatternCard specific image styling */
+.pattern-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 8/5; /* Ensures the image maintains its aspect ratio */
+  object-fit: cover;
+}
+
+.pattern-card h2 {
+  font-size: 24px;
+  margin: 16px 0 4px;
+  color: #1e1e1e; /* Set the desired font color */
+  font-weight: 400; /* Set desired font weight */
+}
+
+.pattern-card p {
+  font-size: 16px;
+  color: #757575; /* A lighter shade for the one-liner */
+  margin: 0;
+  line-height: 1.4; /* Adjust line height for readability */
+  padding-bottom: 20px;
+}
+
+.pattern-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.pattern-details h1 {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: #1e1e1e; /* Adjust the color as needed */
+}
+
+.pattern-details p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #757575; /* Lighter shade for descriptions */
+  margin-bottom: 12px;
+}
+
+/* Container for the entire pattern page */
+.pattern-details-container {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px; /* Space between elements */
+}
+
+/* Main content: Image on the left, text (title & description) on the right */
+.pattern-main-content {
+  display: flex;
+  gap: 48px; /* Space between the image and text */
+  align-items: flex-start; /* Align text with the top of the image */
+}
+
+/* Main image styling */
+.main-image {
+  width: 100%;                /* Make the image responsive */
+  max-width: 66vw;            /* Limit the width based on the viewport, e.g., 80% of the viewport width */
+  max-height: 45vw;           /* Maintain the aspect ratio */
+  height: auto;               /* Maintain aspect ratio */
+  object-fit: cover;           /* Ensures the image maintains aspect ratio */
+}
+
+/* Text (Title and Description) next to the image */
+.pattern-text {
+  flex: 1; /* Take up remaining space next to the image */
+  max-width: 600px; /* You can adjust this based on how much space you want for the text */
+  margin-right: 48px;
+}
+
+/* Title styling */
+.pattern-text h1 {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: #1e1e1e;
+}
+
+/* Description styling */
+.pattern-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #757575;
+}
+
+/* Secondary image styling */
+.secondary-image {
+  width: 528px;
+  height: 336px;
+  object-fit: cover;
+  margin-top: 48px;
+}
+
+/* Related patterns section */
+.related-patterns {
+  position: absolute;
+  bottom: 48px;  /* Adjust positioning as needed */
+  right: 48px;   /* Right align */
+}
+
+.related-patterns h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: #1e1e1e;
+}
+
+.related-patterns ul {
+  list-style: none;
+  padding: 0;
+}
+
+.related-patterns li {
+  margin-bottom: 8px;
+}
+
+.related-patterns a {
+  color: #1e1e1e;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.related-patterns a:hover {
+  color: #757575;
+}
+
+
+
+/* Tag Filter Buttons */
+.tag-filters {
+  display: flex;
+  justify-content: flex-end;  /* Right-align the buttons */
+  padding-right: 48px;
+  padding-top: 20px;
+  margin-bottom: 20px;        /* Add some space between the buttons and the gallery */
+}
+
+.tag-filters button {
+  margin-left: 8px;  /* Space between each button */
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  background-color: #626262;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.tag-filters button:hover {
+  background-color: #c1c1c1;
+}
+
+.tag-filters button.active {
+  background-color: #000000;
+  color: #fff;
+}
+ 
+.tag-filters .reset {
+  background-color: transparent;
+  color: #1e1e1e;
+  margin-left: 10px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.tag-filters .reset:hover {
+  background-color: transparent;
+  color: #000000;
+}
+
+
+/* Responsive Design: For smaller screens */
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
   }
+
+  .pattern-main-content {
+    flex-direction: column;  /* Stack the image and text vertically */
+  }
+
+  .main-image {
+    max-width: 100%;  /* Make the image take full width */
+  }
+
+  .pattern-text {
+    max-width: 100%;  /* Text should also take full width */
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(1, 1fr); /* 1 item per row */
+  }
+
+  .pattern-details-container {
+    padding: 24px;  /* Reduce padding for smaller screens */
+  }
+
+  .pattern-main-content {
+    flex-direction: column; /* Stack the image and text vertically */
+    gap: 24px;  /* Reduce gap */
+  }
+
+  .main-image {
+    max-width: 100%;  /* Make the image take full width */
+    height: auto;     /* Ensure the height adapts automatically */
+  }
+
+  .pattern-text h1 {
+    font-size: 28px;  /* Adjust title font size for smaller screens */
+  }
+
+  .pattern-text p {
+    font-size: 16px;  /* Adjust description font size for smaller screens */
+  }
+
+  .secondary-image {
+    max-width: 100%; /* Make secondary image full width */
+    height: auto;    /* Maintain aspect ratio */
+  }
+
+  .related-patterns {
+    position: static;  /* Remove absolute positioning on smaller screens */
+    margin-top: 24px;  /* Add some margin above related patterns */
+    right: auto;
+  }
+}
+
+.pattern-wrapper {
+  transition: transform 2s ease, opacity 0.3s ease;
+}
+
+.pattern-wrapper:hover {
+  transform: scale(1.01);
 }
