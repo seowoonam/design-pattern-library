@@ -182,8 +182,10 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .tag-filters button {
-  margin-left: 8px;  /* Space between each button */
-  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  padding: 6px 12px;
   border-radius: 20px;
   border: none;
   background-color: #626262;
@@ -191,6 +193,12 @@ h1, h2, h3, h4, h5, h6, p {
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s ease;
+}
+
+.tag-icon {
+  width: 20px;    /* Adjust size based on your design */
+  height: 20px;   /* Make sure the height matches the width */
+  margin-right: 8px; /* Space between the icon and the tag text */
 }
 
 .tag-filters button:hover {

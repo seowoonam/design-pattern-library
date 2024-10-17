@@ -28,38 +28,39 @@ export default function Home() {
 
   return (
     <div>
-  {/* Tag Filter UI */}
-  <div className="tag-filters">
-    {allTags.map((tag, index) => (
-      <button
-        key={index}
-        onClick={() => handleTagClick(tag)}
-        onMouseEnter={() => setHoveredTag(tag)}
-        onMouseLeave={() => setHoveredTag(null)}
-        className={selectedTags.includes(tag) ? 'active' : ''}
-      >
-        {tag}
-      </button>
-    ))}
-    <button onClick={() => setSelectedTags([])} className="reset">Show All</button>
-  </div>
-
-  {/* Gallery of Patterns */}
-  <div className="gallery">
-    {filteredPatterns.map((pattern, index) => (
-      <div
-        key={index}
-        className="pattern-wrapper"
-        style={{
-          opacity: hoveredTag && !pattern.tags.includes(hoveredTag) ? 0.3 : 1,
-          transition: "opacity 0.3s ease",
-        }}
-      >
-        <PatternCard pattern={pattern} />
+      {/* Tag Filter UI */}
+      <div className="tag-filters">
+        {allTags.map((tag, index) => (
+          <button
+            key={index}
+            onClick={() => handleTagClick(tag)}
+            onMouseEnter={() => setHoveredTag(tag)}
+            onMouseLeave={() => setHoveredTag(null)}
+            className={selectedTags.includes(tag) ? 'active' : ''}
+          >
+            {/* Dynamically load the correct icon based on the tag name */}
+            <img src={`/icons/${tag.toLowerCase()}-tag.svg`} alt={`${tag} icon`} className="tag-icon" />
+            {tag}
+          </button>
+        ))}
+        <button onClick={() => setSelectedTags([])} className="reset">Show All</button>
       </div>
-    ))}
-  </div>
-</div>
 
+      {/* Gallery of Patterns */}
+      <div className="gallery">
+        {filteredPatterns.map((pattern, index) => (
+          <div
+            key={index}
+            className="pattern-wrapper"
+            style={{
+              opacity: hoveredTag && !pattern.tags.includes(hoveredTag) ? 0.3 : 1,
+              transition: "opacity 0.3s ease",
+            }}
+          >
+            <PatternCard pattern={pattern} />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
