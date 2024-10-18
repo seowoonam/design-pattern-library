@@ -68,6 +68,36 @@
       "secondaryImage": ["/images/dynamic data visualization_secondary_1.png", "/images/dynamic data visualization_secondary_2.png"],
       "tags": ["AI", "UI", "Data"],
       "relatedPatterns": []
+    },
+    {
+      "title": "Granular Data Exploration",
+      "oneLiner": "Enables users to ask further questions about the data",
+      "description": "Enables users to ask further questions about a certain data to understand the underlying factors behind them or broader context around them.",
+      "mainImage": "/images/granular data exploration.png",
+      "primaryImage": "/images/granular data exploration_primary.png",
+      "secondaryImage": ["/images/granular data exploration_secondary_1.png"],
+      "tags": ["AI", "LLM", "UI", "Data", "Data Visualization"],
+      "relatedPatterns": ["Dynamic Data Exploration"]
+    },
+    {
+      "title": "Algorithmic Process",
+      "oneLiner": "Show the underlying algorithmic process rather than only showing the final outputs",
+      "description": "Show the underlying algorithmic process rather than only showing the final outputs. Focus on what is most valuable for users to understand, and in what manner. Also think about options for users to further investigate, adjust the parameters or override algorithmic decisions.",
+      "mainImage": "/images/algorithmic process.png",
+      "primaryImage": "/images/algorithmic process_primary.png",
+      "secondaryImage": [],
+      "tags": ["AI", "UI"],
+      "relatedPatterns": ["Dynamic Data Exploration"]
+    },
+    {
+      "title": "Data Expression Generation",
+      "oneLiner": "Change the unit or generate different expressions of the data",
+      "description": "Change the unit of the data or generate additional explanations to make the data more relatable.",
+      "mainImage": "/images/data expression generation.png",
+      "primaryImage": "/images/data expression generation_primary.png",
+      "secondaryImage": [],
+      "tags": ["AI", "LLM", "Data", "Data exploration", "UI"],
+      "relatedPatterns": ["Dynamic Data Exploration"]
     }
 
 

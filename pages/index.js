@@ -3,14 +3,16 @@ import PatternCard from '../components/PatternCard';
 import patternsData from '../data/patterns.json';  // Ensure this path is correct
 
 export default function Home() {
-  // Step 1: Add state for selected and hovered tags
   const [selectedTags, setSelectedTags] = useState([]);  // State to hold selected tags
-  const [hoveredTag, setHoveredTag] = useState(null);    // State to track the hovered tag
+  const [expandedTag, setExpandedTag] = useState(null);  // State to track the clicked main tag
 
-  // Step 2: Get all unique tags from the patterns data
-  const allTags = [...new Set(patternsData.flatMap((pattern) => pattern.tags))];
+  // Define Main and Secondary Tags
+  const allTags = [
+    { main: 'AI', secondary: ['LLM', 'ML', 'RAG', 'NLP'] },
+    { main: 'Data', secondary: ['Data Visualization', 'Data Analysis'] },
+    { main: 'UI', secondary: [] },  // No secondary tags for UI
+  ];
 
-  // Step 3: Function to handle tag clicks
   const handleTagClick = (tag) => {
     if (selectedTags.includes(tag)) {
       setSelectedTags(selectedTags.filter((selectedTag) => selectedTag !== tag));
@@ -19,7 +21,15 @@ export default function Home() {
     }
   };
 
-  // Step 4: Filter patterns based on selected tags
+  // Toggle the visibility of secondary tags when the main tag is clicked
+  const toggleExpandedTag = (mainTag) => {
+    if (expandedTag === mainTag) {
+      setExpandedTag(null);  // Collapse if the same tag is clicked again
+    } else {
+      setExpandedTag(mainTag);  // Expand the clicked main tag
+    }
+  };
+
   const filteredPatterns = selectedTags.length > 0
     ? patternsData.filter((pattern) =>
         selectedTags.every((tag) => pattern.tags.includes(tag))
@@ -30,21 +40,47 @@ export default function Home() {
     <div>
       {/* Tag Filter UI */}
       <div className="tag-filters">
-        {allTags.map((tag, index) => (
-          <button
-            key={index}
-            onClick={() => handleTagClick(tag)}
-            onMouseEnter={() => setHoveredTag(tag)}
-            onMouseLeave={() => setHoveredTag(null)}
-            className={selectedTags.includes(tag) ? 'active' : ''}
-          >
-            {/* Dynamically load the correct icon based on the tag name */}
-            <img src={`/icons/${tag.toLowerCase()}-tag.svg`} alt={`${tag} icon`} className="tag-icon" />
-            {tag}
-          </button>
-        ))}
-        <button onClick={() => setSelectedTags([])} className="reset">Show All</button>
+  {allTags.map(({ main, secondary }, index) => {
+    const isExpanded = expandedTag === main;
+
+    return (
+      <div
+        key={index}
+        className={`tag-wrapper ${isExpanded ? 'active' : ''}`} 
+      >
+        {/* Main Tag */}
+        <button
+          onClick={() => {
+            handleTagClick(main);
+            toggleExpandedTag(main);  // Toggle secondary tags on main tag click
+          }}
+          className={`tag-button ${selectedTags.includes(main) ? 'active' : ''}`}
+        >
+          <img src={`/icons/${main.toLowerCase()}-tag.svg`} alt={`${main} icon`} className="tag-icon" />
+          {main}
+        </button>
+
+        {/* Secondary Tags */}
+        {isExpanded && secondary.length > 0 && (
+          <div className="secondary-tags">
+            {secondary.map((secTag, secIndex) => (
+              <button
+                key={secIndex}
+                onClick={() => handleTagClick(secTag)}
+                className={`tag-button ${selectedTags.includes(secTag) ? 'active' : ''}`}
+              >
+                {secTag}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
+    );
+  })}
+  <button onClick={() => setSelectedTags([])} className="reset">Show All</button>
+</div>
+
+      
 
       {/* Gallery of Patterns */}
       <div className="gallery">
@@ -53,7 +89,7 @@ export default function Home() {
             key={index}
             className="pattern-wrapper"
             style={{
-              opacity: hoveredTag && !pattern.tags.includes(hoveredTag) ? 0.3 : 1,
+              opacity: expandedTag && !pattern.tags.includes(expandedTag) ? 0.3 : 1,
               transition: "opacity 0.3s ease",
             }}
           >

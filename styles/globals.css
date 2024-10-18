@@ -172,33 +172,48 @@ h1, h2, h3, h4, h5, h6, p {
 
 
 
-/* Tag Filter Buttons */
-.tag-filters {
-  display: flex;
-  justify-content: flex-end;  /* Right-align the buttons */
-  padding-right: 48px;
-  padding-top: 20px;
-  margin-bottom: 20px;        /* Add some space between the buttons and the gallery */
-}
-
-.tag-filters button {
-  display: flex;
-  align-items: center;
-  margin-left: 8px;
-  padding: 6px 12px;
-  border-radius: 20px;
-  border: none;
-  background-color: #626262;
-  color: #fff;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
-
 .tag-icon {
   width: 20px;    /* Adjust size based on your design */
   height: 20px;   /* Make sure the height matches the width */
   margin-right: 8px; /* Space between the icon and the tag text */
+}
+
+.tag-filters {
+  display: flex;
+  justify-content: flex-end;  /* Right-align the buttons */
+  margin-top: 20px;
+  margin-right: 32px;
+  position: relative;         /* For positioning secondary tags dynamically */
+  gap: 16px; /* Maintain space between the tags */
+}
+
+.tag-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  gap: 8px;
+}
+
+.tag-wrapper.active {
+  /* Dynamically expand to accommodate the secondary tags */
+  padding-right: calc(16px + (100px * var(--secondary-tags-count)));  /* Adjust based on the total width of secondary tags */
+  transition: all 0.3s ease;  /* Smooth transition when expanding */
+}
+
+
+.tag-filters button {
+  display: flex;
+  align-items: center;
+  /*margin-left: 8px;*/
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: none;
+  background-color: #353535;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.3s ease;;
 }
 
 .tag-filters button:hover {
@@ -223,6 +238,53 @@ h1, h2, h3, h4, h5, h6, p {
   background-color: transparent;
   color: #000000;
 }
+
+/* Styling for secondary tags */
+.secondary-tags {
+  display: none; /* Initially hidden */
+  flex-wrap: nowrap;
+  gap: 16px;
+  margin-left: 16px;
+}
+
+.tag-wrapper .secondary-tags {
+  display: none; /* Hidden by default */
+  flex-wrap: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  transform: translateX(-10px); /* Shift slightly left when hidden */
+  gap: 8px; /* Adjust spacing between secondary tags */
+  margin-left: 8px; /* Ensure secondary tags appear just to the right of the main tag */
+}
+
+.tag-wrapper.active .secondary-tags {
+  display: flex; /* Show secondary tags when the main tag is active */
+  opacity: 1;   /* Show secondary tags when active */
+  transform: translateX(0); /* Move to the correct position */
+}
+
+.secondary-tags button {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: none;
+  background-color: #626262;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.secondary-tags button:hover {
+  background-color: #c1c1c1;
+}
+
+.secondary-tags button.active {
+  background-color: #000000;
+  color: #fff;
+}
+
 
 
 /* Responsive Design: For smaller screens */
