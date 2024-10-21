@@ -5,111 +5,217 @@
     "description": "Visualize how a user prompt is tokenized at multiple levels—characters, words, or phrases—and how each token is assigned a relative weight based on its importance. Show the semantic relationships between these tokens by projecting them into an embedding space. Additionally, external data retrieved by the system can be mapped into the same space, showing which external sources were used and how they relate to the user’s original input.",
     "mainImage": "/images/prompt processing visualization.png",
     "primaryImage": "/images/prompt processing visualization_primary.png",
-    "secondaryImage": ["/images/prompt processing visualization_secondary_1.png", "/images/prompt processing visualization_secondary_2.png", "/images/prompt processing visualization_secondary_3.png", "/images/prompt processing visualization_secondary_4.png", "/images/prompt processing visualization_secondary_5.png", "/images/prompt processing visualization_secondary_6.png", "/images/prompt processing visualization_secondary_7.png"],
-    "tags": ["AI", "LLM", "Data", "Data visualizationn", "UI"],
-    "relatedPatterns": ["Algorithmic Process", "Data Toggle"]
+    "secondaryImages": [
+      {
+        "src": "/images/prompt processing visualization_secondary_1.png",
+        "text": "This image shows the initial tokenization of the prompt into words."
+      },
+      {
+        "src": "/images/prompt processing visualization_secondary_2.png",
+        "text": "This image visualizes how the prompt is processed into embeddings."
+      },
+      {
+        "src": "/images/prompt processing visualization_secondary_3.png",
+        "text": "This image demonstrates how external data sources were integrated."
+      },
+      {
+        "src": "/images/prompt processing visualization_secondary_4.png"
+      },
+      {
+        "src": "/images/prompt processing visualization_secondary_5.png"
+      },
+      {
+        "src": "/images/prompt processing visualization_secondary_6.png"
+      },
+      {
+        "src": "/images/prompt processing visualization_secondary_7.png"
+      }
+    ],
+    "tags": [
+      "AI",
+      "LLM",
+      "Data",
+      "Data visualization",
+      "UI"
+    ],
+    "relatedPatterns": [
+      "Algorithmic Process",
+      "Data Toggle"
+    ]
   },
-    {
-      "title": "Interactive Prompt",
-      "oneLiner": "Make the prompt interactive to enable fine-tuning",
-      "description": "Detect operators or variables in the user prompt and replace them with UI elements. It can be used to introduce other possible options or fine-tuning the prompt (e.g. giving different weights).",
-      "mainImage": "/images/interactive prompt.png",
-      "primaryImage": "/images/interactive prompt_primary.png",
-      "secondaryImage": [],
-      "tags": ["AI", "UI"],
-      "relatedPatterns": ["Constrained Input"]
-    },
-    {
-        "title": "Weighted Parameter",
-        "oneLiner": "Replacing variables in the prompt with interactive UI elements",
-        "description": "Add interactive data visualizations of parameters and let users adjust their weights. The image takes an example of the attention weight of each token in user prompt.",
-        "mainImage": "/images/weighted parameter.png",
-        "primaryImage": "/images/weighted parameter_primary.png",
-        "secondaryImage": [],
-        "tags": ["AI", "Data", "UI"],
-        "relatedPatterns": ["Interactive Prompt"]
-    },
-    {
-        "title": "Data Toggle",
-        "oneLiner": "Show the segment of source data that AI retrieved and give an option to include or exclude it",
-        "description": "Show the segment of source data that AI retrieved and give an option to include or exclude it.",
-        "mainImage": "/images/data toggle.png",
-        "primaryImage": "/images/data toggle_primary.png",
-        "secondaryImage": [],
-        "tags": ["Data", "UI"],
-        "relatedPatterns": []
-    },
-    {
-      "title": "Constrained Input",
-      "oneLiner": "Limit the types of user inputs for higher performance",
-      "description": "Ask users to give specific types of inputs so that the AI system can ensure more accurate outputs. If any, think about how each variable depend on each other.",
-      "mainImage": "/images/constrained input.png",
-      "primaryImage": "/images/constrained input_primary.png",
-      "secondaryImage": ["/images/constrained input_secondary.png", "/images/constrained input_secondary-1.png"],
-      "tags": ["AI", "UI"],
-      "relatedPatterns": ["Interactive Prompt"]
-    },
-    {
-      "title": "Probabilistic Menu",
-      "oneLiner": "Give different menu items and sort them based on the context",
-      "description": "Ask users to give specific types of inputs so that the AI system can ensure more accurate outputs. If any, think about how each variable depend on each other.",
-      "mainImage": "/images/probabilistic menu.png",
-      "primaryImage": "/images/probabilistic menu_primary.png",
-      "secondaryImage": [],
-      "tags": ["AI", "UI"],
-      "relatedPatterns": ["Interactive Prompt"]
-    },
-    {
-      "title": "Full Prompt",
-      "oneLiner": "Show the underlying system prompt",
-      "description": "",
-      "mainImage": "/images/full prompt.png",
-      "primaryImage": "/images/full prompt_primary.png",
-      "secondaryImage": [],
-      "tags": ["AI", "UI"],
-      "relatedPatterns": []
-    },
-    {
-      "title": "Dynamic Data Visualization",
-      "oneLiner": "Interactively fine-tune the data visualization",
-      "description": "Enable users to tailor the data visualization to their interests and needs by changing measures or adjusting units.",
-      "mainImage": "/images/dynamic data visualization.png",
-      "primaryImage": "/images/dynamic data visualization_primary.png",
-      "secondaryImage": ["/images/dynamic data visualization_secondary_1.png", "/images/dynamic data visualization_secondary_2.png"],
-      "tags": ["AI", "UI", "Data"],
-      "relatedPatterns": []
-    },
-    {
-      "title": "Granular Data Exploration",
-      "oneLiner": "Enables users to ask further questions about the data",
-      "description": "Enables users to ask further questions about a certain data to understand the underlying factors behind them or broader context around them.",
-      "mainImage": "/images/granular data exploration.png",
-      "primaryImage": "/images/granular data exploration_primary.png",
-      "secondaryImage": ["/images/granular data exploration_secondary_1.png"],
-      "tags": ["AI", "LLM", "UI", "Data", "Data Visualization"],
-      "relatedPatterns": ["Dynamic Data Exploration"]
-    },
-    {
-      "title": "Algorithmic Process",
-      "oneLiner": "Show the underlying algorithmic process rather than only showing the final outputs",
-      "description": "Show the underlying algorithmic process rather than only showing the final outputs. Focus on what is most valuable for users to understand, and in what manner. Also think about options for users to further investigate, adjust the parameters or override algorithmic decisions.",
-      "mainImage": "/images/algorithmic process.png",
-      "primaryImage": "/images/algorithmic process_primary.png",
-      "secondaryImage": [],
-      "tags": ["AI", "UI"],
-      "relatedPatterns": ["Dynamic Data Exploration"]
-    },
-    {
-      "title": "Data Expression Generation",
-      "oneLiner": "Change the unit or generate different expressions of the data",
-      "description": "Change the unit of the data or generate additional explanations to make the data more relatable.",
-      "mainImage": "/images/data expression generation.png",
-      "primaryImage": "/images/data expression generation_primary.png",
-      "secondaryImage": [],
-      "tags": ["AI", "LLM", "Data", "Data exploration", "UI"],
-      "relatedPatterns": ["Dynamic Data Exploration"]
-    }
-
-
-  ]
-  
+  {
+    "title": "Interactive Prompt",
+    "oneLiner": "Make the prompt interactive to enable fine-tuning",
+    "description": "Detect operators or variables in the user prompt and replace them with UI elements. It can be used to introduce other possible options or fine-tuning the prompt (e.g. giving different weights).",
+    "mainImage": "/images/interactive prompt.png",
+    "primaryImage": "/images/interactive prompt_primary.png",
+    "secondaryImages": [],
+    "tags": [
+      "AI",
+      "UI"
+    ],
+    "relatedPatterns": [
+      "Constrained Input"
+    ]
+  },
+  {
+    "title": "Weighted Parameter",
+    "oneLiner": "Replacing variables in the prompt with interactive UI elements",
+    "description": "Add interactive data visualizations of parameters and let users adjust their weights. The image takes an example of the attention weight of each token in user prompt.",
+    "mainImage": "/images/weighted parameter.png",
+    "primaryImage": "/images/weighted parameter_primary.png",
+    "secondaryImages": [],
+    "tags": [
+      "AI",
+      "Data",
+      "UI"
+    ],
+    "relatedPatterns": [
+      "Interactive Prompt"
+    ]
+  },
+  {
+    "title": "Data Toggle",
+    "oneLiner": "Show the segment of source data that AI retrieved and give an option to include or exclude it",
+    "description": "Show the segment of source data that AI retrieved and give an option to include or exclude it.",
+    "mainImage": "/images/data toggle.png",
+    "primaryImage": "/images/data toggle_primary.png",
+    "secondaryImages": [],
+    "tags": [
+      "Data",
+      "UI"
+    ],
+    "relatedPatterns": []
+  },
+  {
+    "title": "Constrained Input",
+    "oneLiner": "Limit the types of user inputs for higher performance",
+    "description": "Ask users to give specific types of inputs so that the AI system can ensure more accurate outputs. If any, think about how each variable depend on each other.",
+    "mainImage": "/images/constrained input.png",
+    "primaryImage": "/images/constrained input_primary.png",
+    "secondaryImages": [
+      {
+        "src": "/images/constrained input_secondary.png",
+        "text": "This image demonstrates how input types can be constrained."
+      },
+      {
+        "src": "/images/constrained input_secondary-1.png",
+        "text": "This image shows how input constraints lead to optimized output."
+      }
+    ],
+    "tags": [
+      "AI",
+      "UI"
+    ],
+    "relatedPatterns": [
+      "Interactive Prompt"
+    ]
+  },
+  {
+    "title": "Probabilistic Menu",
+    "oneLiner": "Give different menu items and sort them based on the context",
+    "description": "Ask users to give specific types of inputs so that the AI system can ensure more accurate outputs. If any, think about how each variable depend on each other.",
+    "mainImage": "/images/probabilistic menu.png",
+    "primaryImage": "/images/probabilistic menu_primary.png",
+    "secondaryImages": [],
+    "tags": [
+      "AI",
+      "UI"
+    ],
+    "relatedPatterns": [
+      "Interactive Prompt"
+    ]
+  },
+  {
+    "title": "Full Prompt",
+    "oneLiner": "Show the underlying system prompt",
+    "description": "",
+    "mainImage": "/images/full prompt.png",
+    "primaryImage": "/images/full prompt_primary.png",
+    "secondaryImages": [],
+    "tags": [
+      "AI",
+      "UI"
+    ],
+    "relatedPatterns": []
+  },
+  {
+    "title": "Dynamic Data Visualization",
+    "oneLiner": "Interactively fine-tune the data visualization",
+    "description": "Enable users to tailor the data visualization to their interests and needs by changing measures or adjusting units.",
+    "mainImage": "/images/dynamic data visualization.png",
+    "primaryImage": "/images/dynamic data visualization_primary.png",
+    "secondaryImages": [
+      {
+        "src": "/images/dynamic data visualization_secondary_1.png",
+        "text": "This image shows how users can dynamically adjust data measures."
+      },
+      {
+        "src": "/images/dynamic data visualization_secondary_2.png",
+        "text": "This image demonstrates fine-tuning of data visualizations."
+      }
+    ],
+    "tags": [
+      "AI",
+      "UI",
+      "Data"
+    ],
+    "relatedPatterns": []
+  },
+  {
+    "title": "Granular Data Exploration",
+    "oneLiner": "Enables users to ask further questions about the data",
+    "description": "Enables users to ask further questions about a certain data to understand the underlying factors behind them or broader context around them.",
+    "mainImage": "/images/granular data exploration.png",
+    "primaryImage": "/images/granular data exploration_primary.png",
+    "secondaryImages": [
+      {
+        "src": "/images/granular data exploration_secondary_1.png",
+        "text": "This image shows deeper exploration of specific data points."
+      }
+    ],
+    "tags": [
+      "AI",
+      "LLM",
+      "UI",
+      "Data",
+      "Data Visualization"
+    ],
+    "relatedPatterns": [
+      "Dynamic Data Exploration"
+    ]
+  },
+  {
+    "title": "Algorithmic Process",
+    "oneLiner": "Show the underlying algorithmic process rather than only showing the final outputs",
+    "description": "Show the underlying algorithmic process rather than only showing the final outputs. Focus on what is most valuable for users to understand, and in what manner. Also think about options for users to further investigate, adjust the parameters or override algorithmic decisions.",
+    "mainImage": "/images/algorithmic process.png",
+    "primaryImage": "/images/algorithmic process_primary.png",
+    "secondaryImages": [],
+    "tags": [
+      "AI",
+      "UI"
+    ],
+    "relatedPatterns": [
+      "Dynamic Data Exploration"
+    ]
+  },
+  {
+    "title": "Data Expression Generation",
+    "oneLiner": "Change the unit or generate different expressions of the data",
+    "description": "Change the unit of the data or generate additional explanations to make the data more relatable.",
+    "mainImage": "/images/data expression generation.png",
+    "primaryImage": "/images/data expression generation_primary.png",
+    "secondaryImages": [],
+    "tags": [
+      "AI",
+      "LLM",
+      "Data",
+      "Data exploration",
+      "UI"
+    ],
+    "relatedPatterns": [
+      "Dynamic Data Exploration"
+    ]
+  }
+]

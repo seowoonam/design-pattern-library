@@ -78,26 +78,15 @@ h1, h2, h3, h4, h5, h6, p {
 /* Main content: Image on the left, text (title & description) on the right */
 .pattern-main-content {
   display: flex;
-  gap: 48px; /* Space between the image and text */
+  gap: 32px; /* Space between the image and text */
   align-items: flex-start; /* Align text with the top of the image */
 }
 
-/* Main image styling */
-.main-image {
-  width: 100%;                /* Make the image responsive */
-  max-width: 66vw;            /* Limit the width based on the viewport, e.g., 80% of the viewport width */
-  max-height: 45vw;           /* Maintain the aspect ratio */
-  height: auto;               /* Maintain aspect ratio */
-  object-fit: cover;           /* Ensures the image maintains aspect ratio */
-}
-
-.primary-image {
-  width: 100%;                /* Make the image responsive */
-  max-width: 66vw;            /* Limit the width based on the viewport */
-  max-height: 45vw;           /* Maintain the aspect ratio */
-  height: auto;               /* Maintain aspect ratio */
-  object-fit: cover;           /* Ensures the image maintains aspect ratio */
-  margin-bottom: 0px;         /* Add space between the image and the text */
+.main-image, .primary-image {
+  width: 100%;
+  max-width: 60vw;
+  height: auto;
+  object-fit: cover;
 }
 
 /* Text (Title and Description) next to the image */
@@ -122,19 +111,38 @@ h1, h2, h3, h4, h5, h6, p {
   color: #757575;
 }
 
-/* Secondary image styling */
-.secondary-images {
-  width: 100%;                /* Make the container responsive */
-  max-width: 66vw;            /* Limit the width to the same as the main image */
-  display: flex;              /* Layout the secondary images side by side */
-  gap: 16px;                  /* Space between secondary images */
-  flex-wrap: wrap;            /* Wrap to a new row if there are too many images */
+/* Secondary image and text layout */
+.secondary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;   /* Space between secondary image sections */
+  margin-bottom: 48px; /* Space between the secondary content and the rest */
 }
 
-.secondary-images img {
-  width: 48%;                 /* Make each secondary image take up half the width of the container */
-  height: auto;               /* Maintain aspect ratio */
-  object-fit: cover;          /* Ensures the image maintains aspect ratio */
+/* Wrapper for individual secondary image and its corresponding text */
+.secondary-image-wrapper {
+  display: flex;
+  gap: 24px;  /* Space between the image and the text */
+  align-items: center;  /* Center align the image and the text vertically */
+}
+
+/* Secondary image styling */
+.secondary-image {
+  width: 100%;
+  max-width: 60vw;
+  height: auto;  /* Maintain the image's aspect ratio */
+  object-fit: cover;  /* Ensure the image fits properly */
+}
+
+/* Secondary text styling */
+.secondary-text {
+  flex: 1;  /* Take up the remaining space next to the image */
+  max-width: 600px; /* Adjust width for the text */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #757575;
+  display: flex;
+  align-items: center; /* Vertically center-align the text */
 }
 
 /* Related patterns section */
@@ -172,7 +180,26 @@ h1, h2, h3, h4, h5, h6, p {
   color: #757575;
 }
 
+/* Tags styling inside pattern-text */
+.pattern-tags {
+  margin-bottom: 16px; /* Space below the tags */
+  display: flex;
+  flex-wrap: wrap; /* Allow the tags to wrap if there's not enough space */
+  gap: 8px; /* Space between individual tags */
+}
 
+.pattern-tag {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background-color: #2f2f2f; /* Inherit the background color from tag-filters */
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  cursor: default; /* Disable the pointer effect (not interactive) */
+  transition: none; /* No hover or click effects */
+}
 
 .tag-icon {
   width: 20px;    /* Adjust size based on your design */
@@ -211,7 +238,7 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 6px 12px;
   border-radius: 20px;
   border: none;
-  background-color: #353535;
+  background-color: #6d6d6d;
   color: #fff;
   cursor: pointer;
   font-size: 14px;
@@ -288,11 +315,10 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 
-
 /* Responsive Design: For smaller screens */
 @media (max-width: 1024px) {
   .gallery {
-    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .pattern-main-content {
@@ -306,6 +332,18 @@ h1, h2, h3, h4, h5, h6, p {
   .pattern-text {
     max-width: 100%;  /* Text should also take full width */
   }
+
+  .secondary-image-wrapper {
+    flex-direction: column; /* Stack the image and text vertically on smaller screens */
+  }
+
+  .secondary-image {
+    width: 100%; /* Image takes full width on smaller screens */
+  }
+
+  .secondary-text {
+    text-align: center; /* Center the text below the image on smaller screens */
+  }
 }
 
 @media (max-width: 768px) {
@@ -313,34 +351,18 @@ h1, h2, h3, h4, h5, h6, p {
     grid-template-columns: repeat(1, 1fr); /* 1 item per row */
   }
 
-  .pattern-details-container {
-    padding: 24px;  /* Reduce padding for smaller screens */
-  }
-
   .pattern-main-content {
-    flex-direction: column; /* Stack the image and text vertically */
-    gap: 24px;  /* Reduce gap */
-  }
-
-  .main-image {
-    max-width: 100%;  /* Make the image take full width */
-    height: auto;     /* Ensure the height adapts automatically */
+    gap: 24px; /* Adjust the gap */
   }
 
   .pattern-text h1 {
-    font-size: 24px;  /* Adjust title font size for smaller screens */
+    font-size: 24px;
   }
 
   .pattern-text p {
-    font-size: 16px;  /* Adjust description font size for smaller screens */
+    font-size: 16px;
     line-height: 1.4;
   }
-
-  .secondary-images {
-    max-width: 100%; /* Make secondary image full width */
-    height: auto;    /* Maintain aspect ratio */
-  }
-
   .related-patterns {
     position: static;  /* Remove absolute positioning on smaller screens */
     margin-top: 24px;  /* Add some margin above related patterns */
