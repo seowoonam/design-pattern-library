@@ -104,21 +104,21 @@ h1, h2, h3, h4, h5, h6, p {
 .pattern-text {
   flex: 1; /* Take up remaining space next to the image */
   max-width: 600px; /* You can adjust this based on how much space you want for the text */
-  margin-right: 48px;
+  margin-right: 24px;
 }
 
 /* Title styling */
 .pattern-text h1 {
   font-size: 28px;
   font-weight: 400;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   color: #1e1e1e;
 }
 
 /* Description styling */
 .pattern-text p {
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.4;
   color: #757575;
 }
 
@@ -139,16 +139,18 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* Related patterns section */
 .related-patterns {
-  position: absolute;
-  bottom: 48px;  /* Adjust positioning as needed */
-  right: 48px;   /* Right align */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Aligns the content to the right */
+  margin-top: auto;      /* Pushes it to the bottom */
+  margin-right: 24px;    /* Adds some spacing from the right */
+  margin-bottom: 48px;   /* Adds spacing from the bottom */
 }
 
 .related-patterns h3 {
   font-size: 18px;
   font-weight: 400;
-  margin-bottom: 12px;
-  color: #1e1e1e;
+  color: #757575;
 }
 
 .related-patterns ul {
@@ -326,11 +328,12 @@ h1, h2, h3, h4, h5, h6, p {
   }
 
   .pattern-text h1 {
-    font-size: 28px;  /* Adjust title font size for smaller screens */
+    font-size: 24px;  /* Adjust title font size for smaller screens */
   }
 
   .pattern-text p {
     font-size: 16px;  /* Adjust description font size for smaller screens */
+    line-height: 1.4;
   }
 
   .secondary-images {

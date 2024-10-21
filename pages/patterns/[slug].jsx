@@ -17,7 +17,7 @@ export default function PatternPage() {
     <div className="pattern-details-container">
       {/* Main Section with Image, Title, and Description */}
       <div className="pattern-main-content">
-      <img src={pattern.primaryImage} alt={pattern.title} className="primary-image" />
+        <img src={pattern.primaryImage} alt={pattern.title} className="primary-image" />
 
         <div className="pattern-text">
           <h1>{pattern.title}</h1>
@@ -26,13 +26,13 @@ export default function PatternPage() {
       </div>
 
       {/* Optional Secondary Images */}
-{pattern.secondaryImage && pattern.secondaryImage.length > 0 && (
-  <div className="secondary-images">
-    {pattern.secondaryImage.map((image, index) => (
-      <img key={index} src={image} alt={`${pattern.title} secondary ${index + 1}`} className="secondary-image" />
-    ))}
-  </div>
-)}
+      {pattern.secondaryImage && pattern.secondaryImage.length > 0 && (
+        <div className="secondary-images">
+          {pattern.secondaryImage.map((image, index) => (
+            <img key={index} src={image} alt={`${pattern.title} secondary ${index + 1}`} className="secondary-image" />
+          ))}
+        </div>
+      )}
 
 
       {/* Related Patterns */}
@@ -43,11 +43,12 @@ export default function PatternPage() {
             {pattern.relatedPatterns.map((relatedPattern, index) => (
               <li key={index}>
                 <a href={`/patterns/${relatedPattern.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '')}`}>
-                  {relatedPattern}
+                 → {relatedPattern}  {/* Adds the right arrow symbol before the pattern name */}
                 </a>
               </li>
             ))}
           </ul>
+
         </div>
       )}
     </div>

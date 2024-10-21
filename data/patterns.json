@@ -7,7 +7,7 @@
     "primaryImage": "/images/prompt processing visualization_primary.png",
     "secondaryImage": ["/images/prompt processing visualization_secondary_1.png", "/images/prompt processing visualization_secondary_2.png", "/images/prompt processing visualization_secondary_3.png", "/images/prompt processing visualization_secondary_4.png", "/images/prompt processing visualization_secondary_5.png", "/images/prompt processing visualization_secondary_6.png", "/images/prompt processing visualization_secondary_7.png"],
     "tags": ["AI", "LLM", "Data", "Data visualizationn", "UI"],
-    "relatedPatterns": ["Data Toggle"]
+    "relatedPatterns": ["Algorithmic Process", "Data Toggle"]
   },
     {
       "title": "Interactive Prompt",
