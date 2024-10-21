@@ -182,7 +182,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* Tags styling inside pattern-text */
 .pattern-tags {
-  margin-bottom: 16px; /* Space below the tags */
+  margin-bottom: 48px; /* Space below the tags */
   display: flex;
   flex-wrap: wrap; /* Allow the tags to wrap if there's not enough space */
   gap: 8px; /* Space between individual tags */
