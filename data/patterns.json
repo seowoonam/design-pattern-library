@@ -1,4 +1,14 @@
 [
+  {
+    "title": "Prompt Processing Visualization",
+    "oneLiner": "Visualize how a user prompt is processed into tokens and embeddings",
+    "description": "Visualize how a user prompt is tokenized at multiple levels—characters, words, or phrases—and how each token is assigned a relative weight based on its importance. Show the semantic relationships between these tokens by projecting them into an embedding space. Additionally, external data retrieved by the system can be mapped into the same space, showing which external sources were used and how they relate to the user’s original input.",
+    "mainImage": "/images/prompt processing visualization.png",
+    "primaryImage": "/images/prompt processing visualization_primary.png",
+    "secondaryImage": ["/images/prompt processing visualization_secondary_1.png", "/images/prompt processing visualization_secondary_2.png", "/images/prompt processing visualization_secondary_3.png", "/images/prompt processing visualization_secondary_4.png", "/images/prompt processing visualization_secondary_5.png", "/images/prompt processing visualization_secondary_6.png", "/images/prompt processing visualization_secondary_7.png"],
+    "tags": ["AI", "LLM", "Data", "Data visualizationn", "UI"],
+    "relatedPatterns": ["Data Toggle"]
+  },
     {
       "title": "Interactive Prompt",
       "oneLiner": "Make the prompt interactive to enable fine-tuning",

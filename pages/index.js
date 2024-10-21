@@ -8,9 +8,9 @@ export default function Home() {
 
   // Define Main and Secondary Tags
   const allTags = [
-    { main: 'AI', secondary: ['LLM', 'ML', 'RAG', 'NLP'] },
-    { main: 'Data', secondary: ['Data Visualization', 'Data Analysis'] },
-    { main: 'UI', secondary: [] },  // No secondary tags for UI
+    { main: 'AI', secondary: ['LLM', 'ML', 'RAG', 'NLP'], icon: 'ai-tag.svg' },
+    { main: 'Data', secondary: ['Data Visualization', 'Data Analysis'], icon: 'data-tag.svg' },
+    { main: 'UI', secondary: [], icon: 'ui-tag.svg' },  // No secondary tags for UI
   ];
 
   const handleTagClick = (tag) => {
@@ -40,47 +40,54 @@ export default function Home() {
     <div>
       {/* Tag Filter UI */}
       <div className="tag-filters">
-  {allTags.map(({ main, secondary }, index) => {
-    const isExpanded = expandedTag === main;
+        {allTags.map(({ main, secondary, icon }, index) => {
+          // Calculate if this tag is the currently expanded one
+          const isExpanded = expandedTag === main;
 
-    return (
-      <div
-        key={index}
-        className={`tag-wrapper ${isExpanded ? 'active' : ''}`} 
-      >
-        {/* Main Tag */}
-        <button
-          onClick={() => {
-            handleTagClick(main);
-            toggleExpandedTag(main);  // Toggle secondary tags on main tag click
-          }}
-          className={`tag-button ${selectedTags.includes(main) ? 'active' : ''}`}
-        >
-          <img src={`/icons/${main.toLowerCase()}-tag.svg`} alt={`${main} icon`} className="tag-icon" />
-          {main}
-        </button>
-
-        {/* Secondary Tags */}
-        {isExpanded && secondary.length > 0 && (
-          <div className="secondary-tags">
-            {secondary.map((secTag, secIndex) => (
+          return (
+            <div
+              key={index}
+              className={`tag-wrapper ${isExpanded ? 'expanded' : ''}`}
+              style={{
+                '--secondary-tags-count': secondary.length,
+              }}
+            >
+              {/* Main Tag */}
               <button
-                key={secIndex}
-                onClick={() => handleTagClick(secTag)}
-                className={`tag-button ${selectedTags.includes(secTag) ? 'active' : ''}`}
+                onClick={() => {
+                  handleTagClick(main);
+                  toggleExpandedTag(main);  // Toggle secondary tags on main tag click
+                }}
+                className={`tag-button ${selectedTags.includes(main) ? 'active' : ''}`}
               >
-                {secTag}
+                <img src={`/icons/${icon}`} alt={`${main} icon`} className="tag-icon" />
+                {main}
               </button>
-            ))}
-          </div>
-        )}
-      </div>
-    );
-  })}
-  <button onClick={() => setSelectedTags([])} className="reset">Show All</button>
-</div>
 
-      
+              {/* Secondary Tags - Appears to the right of the main tag */}
+              {isExpanded && secondary.length > 0 && (
+                <div className="secondary-tags">
+                  {secondary.map((secTag, secIndex) => {
+                    // Use the correct icon based on the tag
+                    const secIcon = main === 'AI' ? 'model-tag.svg' : 'dataviz-tag.svg';
+                    return (
+                      <button
+                        key={secIndex}
+                        onClick={() => handleTagClick(secTag)}
+                        className={`tag-button ${selectedTags.includes(secTag) ? 'active' : ''}`}
+                      >
+                        <img src={`/icons/${secIcon}`} alt={`${secTag} icon`} className="tag-icon" />
+                        {secTag}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })}
+        <button onClick={() => setSelectedTags([])} className="reset">Show All</button>
+      </div>
 
       {/* Gallery of Patterns */}
       <div className="gallery">
